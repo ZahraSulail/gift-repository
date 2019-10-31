@@ -27,24 +27,11 @@ public class MainActivity extends AppCompatActivity {
     //ImageView to display gift's pictures
     ImageView giftImageView;
 
+    //TextView to display gift name
     private TextView mGiftNameTextView;
 
-    // An array saves the sources of gift's pictures
-    private int [][] mGiftPictures = {
-
-            {R.drawable.gift_1, R.string.damask_rose},
-            {R.drawable.gift_2, R.string.flower},
-            {R.drawable.gift_3, R.string.cake},
-            {R.drawable.gift_4, R.string.laptop},
-            {R.drawable.gift_5, R.string.mobile},
-            {R.drawable.gift_6, R.string.book},
-            {R.drawable.gift_7, R.string.peace_of_cake},
-            {R.drawable.gift_8, R.string.shirt},
-            {R.drawable.gift_9, R.string.shoe},
-            {R.drawable.gift_10, R.string.diamond}
-
-
-    };
+   //Declare an array "mGift
+    private Gift[] mGifts = new Gift[10];
 
     //Intioialize the value of mCerrentIndex to -1
     int mCurrentIndex = -1;
@@ -54,13 +41,45 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_main );
-        //Find ImageView by its id
-        giftImageView = findViewById( R.id.image_gift );
-
-       mGiftNameTextView = findViewById( R.id.text_gift_name );
+        setContentView( R.layout.activity_main);
         //Creat new object of Random
         mRandom = new Random( );
+        //Find ImageView by its id
+        giftImageView = findViewById( R.id.image_gift);
+        mGiftNameTextView = findViewById( R.id.text_gift_name);
+
+        /*
+        Use the constructor to setName and setPicture to the gifts
+         */
+        Gift gift1 = new Gift(R.string.damask_rose, R.drawable.gift_1);
+        mGifts[0] = gift1;
+
+        Gift gift2 = new Gift(R.string.flower, R.drawable.gift_2);
+        mGifts[1] = gift2;
+
+        Gift gift3 = new Gift(R.string.cake,  R.drawable.gift_3);
+        mGifts[2] = gift3;
+
+        Gift gift4 = new Gift(R.string.laptop, R.drawable.gift_4);
+        mGifts[3] = gift4;
+
+        Gift gift5 = new Gift(R.string.mobile, R.drawable.gift_5);
+        mGifts[4] = gift5;
+
+        Gift gift6 = new Gift(R.string.book, R.drawable.gift_6);
+        mGifts[5] = gift6;
+
+        Gift gift7 = new Gift(R.string.peace_of_cake,R.drawable.gift_7);
+        mGifts[6] = gift7;
+
+        Gift gift8 = new Gift(R.string.shirt, R.drawable.gift_8);
+        mGifts[7] = gift8;
+
+        Gift gift9 = new Gift(R.string.shoe, R.drawable.gift_9);
+        mGifts[8] = gift9;
+
+        Gift gift10 = new Gift(R.string.diamond, R.drawable.gift_10);
+        mGifts[9] = gift10;
     }
 
     //Create disply method to display gift's pictures
@@ -85,11 +104,13 @@ public class MainActivity extends AppCompatActivity {
         log.i(TAG, "SavedInstanceState");// This message to display information in logcat
     }
 
-    //Save the diplay code in showImage() to call it as needed
+    //Save the diplay code in showISuggestedGift() to call it as needed
     private void showISuggestedGift(){
-        Drawable giftDrawable = ContextCompat.getDrawable( this, mGiftPictures[mCurrentIndex][0] );
+        //save currentIndex variable in suggestedGift
+        Gift suggestedGift = mGifts[mCurrentIndex];
+        Drawable giftDrawable = ContextCompat.getDrawable( this, suggestedGift.getPicture()); //Give picture to gitDrawable
         giftImageView.setImageDrawable( giftDrawable );
-        mGiftNameTextView.setText( mGiftPictures[mCurrentIndex][1] );
+        mGiftNameTextView.setText( suggestedGift.getName()); //Show the name of picture in mGiftNameTextView
 
     }
 

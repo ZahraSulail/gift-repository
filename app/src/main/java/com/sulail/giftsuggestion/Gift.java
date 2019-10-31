@@ -4,6 +4,15 @@ public class Gift {
     private int name;
     private int picture;
 
+    /*
+    Create Gift constructor
+     */
+    public Gift(int name, int picture){
+
+        this.name = name;
+        this.picture = picture;
+    }
+
     public int getName() {
         return name;
     }
