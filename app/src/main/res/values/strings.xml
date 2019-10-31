@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Gift Suggestion</string>
+    <string name="suggestـgift">اقترح هدية</string>
+    <string name="flower">وردة</string>
+    <string name="cake">كعك</string>
+    <string name="laptop">حاسب محمول</string>
+    <string name="mobile">هاتف محمول </string>
+    <string name="book">كتاب</string>
+    <string name="peace_of_cake">قطعة كيك</string>
+    <string name="shirt">قميص</string>
+    <string name="shoe">حذاء</string>
+    <string name="diamond">ماسة</string>
+    <string name="damask_rose">زهرة الجوري</string>
+</resources>
